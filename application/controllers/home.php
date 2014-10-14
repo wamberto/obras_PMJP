@@ -9,6 +9,7 @@ class Home extends CI_Controller {
     
     
     public function index(){
+        //comment
        $dados['mapa'] = $this->mapa();
        $this->template->load('index','contents', $dados);
     }
