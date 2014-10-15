@@ -5,6 +5,7 @@ class Home extends CI_Controller {
      public function __construct() {
         parent::__construct();
         $this->load->library('Googlemaps');
+        $this->load->model('obras_model', 'obras');
     }
     
     
@@ -16,31 +17,39 @@ class Home extends CI_Controller {
     
      public  function mapa(){
         
+         
+        $obras = $this->obras->list_all_works();
+
+         
         $config['center'] = '-7.119495799999999, -34.84501180000001';
         $config['zoom'] = 'auto';
-        $config['map_height'] = '600px';
+        $config['map_height'] = '700px';
         $config['scrollwheel'] = FALSE;
         $this->googlemaps->initialize($config);
+        
+        foreach($obras as $obra){
 
-        $marker = array();
-        $marker['position'] = '-7.1222945, -34.87907229999996';
-        $marker['infowindow_content'] = '1 - Hello World!';
-        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
-        $this->googlemaps->add_marker($marker);
-
-        $marker = array();
-        $marker['position'] = '-7.161481, -34.838329';
-        $marker['infowindow_content'] = 'Viadto de Mangabeira';
-        $this->googlemaps->add_marker($marker);
-
-        $marker = array();
-        $marker['position'] = '-7.108742, -34.873734';
-        $marker['onclick'] = 'alert("You just clicked me!!")';
-        $this->googlemaps->add_marker($marker);
+            $marker = array();
+            $marker['title'] = $obra['titulo'];
+            $marker['infowindow_content'] = $this->format_infowindow($obra);
+            $marker['position'] = $obra['latitude'] .','.$obra['longitude'];
+            $marker['icon'] = $obra['icone'];
+            $this->googlemaps->add_marker($marker);
+        }
+ 
         $data['map'] = $this->googlemaps->create_map();
      
         return $data;
 
+    }
+    
+    public function format_infowindow($obra){
+        
+        $html = '';
+        $html .= 'Obra: <strong>'.$obra['titulo'].'</strong><br/>';
+        $html .= 'Situação: <strong>'.$obra['situacao'].'</strong><br/>';
+        return $html;
+        
     }
     
 }
