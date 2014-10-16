@@ -1,6 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Home extends CI_Controller {
+    
+    public $icones = array(
+        'educacao' => '/img/icon-educacao.png',
+        'saude' => '/img/icon-educacao.png',
+        'trabalho' => '/img/icon-educacao.png',
+    );
 
      public function __construct() {
         parent::__construct();
@@ -31,7 +37,19 @@ class Home extends CI_Controller {
             $marker['title'] = $obra['titulo'];
             $marker['infowindow_content'] = $this->format_infowindow($obra);
             $marker['position'] = $obra['latitude'] .','.$obra['longitude'];
-            $marker['icon'] = $obra['icone'];
+            switch (($obra['categoria']){
+                case 'educacao': 
+                    $marker['icon'] = $this->icones['educacao'];
+                    break;
+                case 'educacao': 
+                    $marker['icon'] = $this->icones['educacao'];
+                    break;
+                case 'educacao': 
+                    $marker['icon'] = $this->icones['educacao'];
+                    break;
+                
+            }
+            
             $this->googlemaps->add_marker($marker);
         }
  
