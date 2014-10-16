@@ -16,15 +16,13 @@ class Home extends CI_Controller {
     }
     
      public  function mapa(){
-        
          
         $obras = $this->obras->list_all_works();
-
-         
+        
         $config['center'] = '-7.119495799999999, -34.84501180000001';
         $config['zoom'] = 'auto';
         $config['map_height'] = '700px';
-        $config['scrollwheel'] = FALSE;
+        $config['scrollwheel'] = true;
         $this->googlemaps->initialize($config);
         
         foreach($obras as $obra){
