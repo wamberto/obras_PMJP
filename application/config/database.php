@@ -44,13 +44,18 @@
 | The $active_record variables lets you determine whether or not to load
 | the active record class
 */
+/* 
+ * ARK Admin V2
+ * Code by Abhishek R. Kaushik
+ * Downloaded from http://devzone.co.in/
+ */
 
 $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = '';
+$db['default']['password'] = '--!Sec0m-FIMC-J0@o-Pess0@!--';
 $db['default']['database'] = 'obras';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

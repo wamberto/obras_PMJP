@@ -36,7 +36,11 @@
 |  $autoload['packages'] = array(APPPATH.'third_party', '/usr/local/shared');
 |
 */
-
+/* 
+ * ARK Admin V2
+ * Code by Abhishek R. Kaushik
+ * Downloaded from http://devzone.co.in/
+ */
 $autoload['packages'] = array();
 
 
@@ -52,7 +56,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','template');
+$autoload['libraries'] = array('database', 'session','template');
 
 
 /*
@@ -64,7 +68,7 @@ $autoload['libraries'] = array('database','template');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url','form');
 
 
 /*

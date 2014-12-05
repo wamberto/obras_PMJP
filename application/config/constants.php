@@ -37,5 +37,13 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
+/* 
+ * ARK Admin V2
+ * Code by Abhishek R. Kaushik
+ * Downloaded from http://devzone.co.in/
+ */
+
+
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
